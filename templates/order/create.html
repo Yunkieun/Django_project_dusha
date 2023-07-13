@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+<section id="wrap">
+<div id="order-form-wrap">
+    <h2>주문서 작성</h2>
+    <div class="order-form">
+
+        <!-- 주문상품 섹션 -->
+        <div class="order-item">
+            <p>주문상품</p>
+        </div>
+
+        <div class="order-item-form">
+            <table class="order-item-form-table">
+                <tr>
+                    <td>상품명</td>
+                    <td>수량</td>
+                    <td>가격</td>
+                </tr>
+
+                {% for cart_item in cart %}
+                <tr>
+                    <td>{{cart_item.item}}</td>
+                    <td>수량: {{cart_item.quantity}}개</td>
+                    <td>KRW {{cart_item.total_price|intcomma}}</td>
+                </tr>
+
+                 {% endfor %}
+            </table>
+        </div>
+
+        <!-- 쿠폰이 적용 되어 있다면 -->
+        <div class="order-coupon">
+            <p>할인쿠폰</p>
+        </div>
+        {% if cart.coupon %}
+        <div class="order-coupon-on">
+            <table class="order-coupon-on-table">
+                <col style="width:200px;">
+                <col style="width:200px;">
+                <thead>
+                    <th>쿠폰명</th>
+                    <td>{{cart.coupon.code}}</td>
+                </thead>
+                <tbody>
+                    <th>할인금액</th>
+                    <td class="discount-price"> -{{cart.coupon.discount|intcomma}}원</td>
+                </tbody>
+            </table>
+            {% else %}
+            <div class="order-coupon-off">
+                <h2 class="not-coupon">쿠폰이 적용되지 않았습니다.</h2>
+            </div>
+            {% endif %}
+             <!-- 배송지 섹션 -->
+        <div class="order-delivery">
+            <p>배송지</p>
+        </div>
+        <!-- 장바구니에 상품이 있다면 -->
+        <div class="order-delivery-form">
+
+            <form action="" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div class="order-last-price">
+                    <button type="submit" class="order-last-price-button" value="PlaceOrder">
+                        KRW {{ cart.get_total_price|intcomma}} 주문하기
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+     {% include 'footer.html' %}
+    </section>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block content %}
+<section id="login">
+
+
+<div class="container_login right-panel-active">
+
+
+  <!-- 로그인 -->
+  <div class="container_login__form container_login--signup">
+
+      <form class="login form" method="POST" action="{% url 'account_login' %}" id="form2">
+         {% csrf_token %}
+
+      <h2 class="form__title">로그 인</h2>
+        {% include 'form_errors.html' %}
+      {{form.login|add_class:"input"|attr:"placeholder:이메일"}}
+      {{form.password|add_class:"input"|attr:"placeholder:패스워드"}}
+      <div class="login_div">
+
+          {% if redirect_field_value %}
+     <div> <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /></div>
+        {% endif %}
+     <div><button class="primaryAction btn_log" type="submit" >Sign In</button></div>
+          </div>
+          <br>
+           <p><a href="#" class="link">Forgot your password?</a></p>
+     <p><a href="{% url 'account_signup' %}" class="link">회원가입하시겠습니까?</a></p>
+
+    </form>
+  </div>
+<!-- 소셜로그인 -->
+  <div class="container_login__form container_login--signin">
+     <form class="signup form" id="signup_form" method="POST" action="{% url 'account_signup' %}">
+        <h2 class="form__title">간편 로그인</h2>
+        {% load account socialaccount %}
+      {% include 'account/allauth_login.html' %}
+
+     </form>
+    </div>
+
+
+  <!-- Overlay -->
+  <div class="container_login__overlay">
+    <div class="overlay">
+      <div class="overlay__panel overlay--left">
+        <button class="btn_log" id="signIn">간편 로그인</button>
+      </div>
+      <div class="overlay__panel overlay--right">
+        <button class="btn_log" id="signUp">로그인</button>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+
+
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+
+<section id="wrap">
+<div class="event"><h1> DUSHA 이벤트</h1></div>
+
+<!-- Wrap the slider in div with overflow hidden to hide scrollbars -->
+<div class="overflow-hidden">
+
+  <!-- The slider itself is a flex grid -->
+  <div class="flex -mx-4 img-ticker">
+
+    <!-- Original set of images -->
+    <!-- Each image is a grid column with width 16rem (w-64) and horiztonal margin 1rem (mx-4) -->
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event1.jpg'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event2.png'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event3.jpg'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event4.jpg'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event5.png'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event6.jpg'%}">
+
+    <!-- Copy set of images -->
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event1.jpg'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event2.png'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event3.jpg'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event4.jpg'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event5.png'%}">
+    <img class="w-64 mx-4 self-start flex-none" src="{% static 'images/event6.jpg'%}">
+  </div>
+</div>
+{% include 'footer.html' %}
+</section>
+
+{% endblock %}

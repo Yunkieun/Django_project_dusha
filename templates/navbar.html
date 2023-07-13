@@ -1,0 +1,35 @@
+
+<aside class="side-bar" style="z-index: 999;">
+
+  <ul>
+    <li>
+      <a href="{% url 'item:item_list' %}">All</a>
+
+    </li>
+    <li>
+      <a href="">PERFUME</a>
+      <ul>
+
+        <li><a href="{% url 'item:category_page' '조말론' %}">Jo Malone</a></li>
+        <li><a href="{% url 'item:category_page' '딥디크' %}">DIPTYQUE</a></li>
+        <li><a href="{% url 'item:category_page' '디올' %}">DIOR</a></li>
+        <li><a href="{% url 'item:category_page' '바이레도' %}">BYREDO</a></li>
+
+      </ul>
+    </li>
+    <li>
+      <a href="#">DEFUSER</a>
+      <ul>
+
+        <li><a href="{% url 'item:category_page' '조말론-디퓨져' %}">Jo Malone</a></li>
+        <li><a href="{% url 'item:category_page' '코코도로-디퓨져 ' %}">COCODOR</a></li>
+        <li><a href="{% url 'item:category_page' '딥디크-디퓨져' %}">DIPTYQUE</a></li>
+
+      </ul>
+    </li>
+    <li><a href="{% url 'board:event' %}">EVENT</a></li>
+    <li><a href="{% url 'board:notice_list' %}">NOTICE</a></li>
+    <li><a href="{% url 'board:question_list' %}">QNA</a></li>
+    <li><a href="{% url 'common:membership' %}">MEMBERSHIP</a></li>
+  </ul>
+</aside>

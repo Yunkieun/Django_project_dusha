@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div id="wrap">
+    <section id="detail">
+        <!-- 질문 전체 섹션-->
+        <div class="board-detail">
+            <!-- 질문 제목 -->
+            <h2 class="board-detail-title">
+                제목 : {{ question.subject }}
+            </h2>
+                <div class="board-detail-content">
+                    <div class="card-body">
+                        <!-- 줄바꿈 style="white-space: pre-line"-->
+                        <!-- 질문 내용 -->
+                        <div class="card-text">
+                            {{ question.content }}
+                        </div>
+                        <!-- 글쓴이, 작성시간 -->
+                        <div class="card-writer-time">
+                            <div class="card-writer">
+                                <b>작성자</b> |  {{ question.author }}
+                            </div>
+                            <div class="card-time">
+                                <b>작성일</b> |  {{ question.create_date }}
+                            </div>
+                        </div>
+                    </div>
+                        <!-- 글쓴이가 로그인한 사람과 일치하면 -->
+                        {% if question.author == request.user %}
+                        <div>
+                            <a href="{% url 'board:question_modify' question.id %}">수정</a>
+                            <a href="#"
+                               data-uri="{% url 'board:question_delete' question.id %}">삭제</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div>
+                    <h5>{{ question.answer_set.count }} 개의 답변이 있습니다.</h5>
+                </div>
+            {% for answer in question.answer_set.all %}
+            <div class="answer-detail">
+                <div class="card-body">
+                    <div class="card-text">
+                        {{ answer.content }}    <!-- 답변 내용 -->
+                    </div>
+                    <div class="card-answer-time">
+                        <div class="answer-writer">
+                            <b>작성자</b> |  {{ question.author }}
+                        </div>
+                        <div class="answer-time">
+                             <b>작성일</b> |  {{ question.create_date }}
+                        </div>
+                    </div>
+                    <!-- 글쓴이가 로그인한 사람과 일치하면 -->
+                    {% if answer.author == request.user %}
+                    <div class="answer-modify-delete">
+                        <a href="{% url 'board:answer_modify' answer.id %}">
+                            <button type="submit" class="custom-btn btn_one1">수정</button></a>
+                        <a href="#"
+                           data-uri="{% url 'board:answer_delete' answer.id %}">
+                            <button type="submit" class="custom-btn btn_one1">삭제</button></a>
+                    </div>
+                    {% endif %}
+                </div>
+        </div>
+
+        {% endfor %}
+
+        <!-- 답변 등록 폼 -->
+        <form action="{% url 'board:answer_create' question.id %}"
+                        method="post">
+            {% csrf_token %} <!-- 필수 : 403 권한 데러 발생 -->
+            {% include 'form_errors.html' %}
+            <div class="form-group">
+                <textarea name="content" rows="10"
+                          cols="50" class="form-control mb-3"
+                    {% if not user.is_authenticated %}disabled{% endif %}></textarea>
+            </div>
+            <button type="submit" class="custom-btn btn_one1">답변 등록</button>
+        </form>
+    </section>
+    {% include 'footer.html' %}
+</div>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function(){
+        $('.delete').click(function(){  // 삭제 버튼을 클릭하면
+            if(confirm('정말 삭제하시겠습니까?')){
+                location.href=$(this).data('uri');  // 현재 대상 객체의 주소를 이동
+            }
+        });
+    });
+</script>
+{% endblock %}

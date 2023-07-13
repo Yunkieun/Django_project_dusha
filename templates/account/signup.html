@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+<section id="login">
+<div class="container_login right-panel-active">
+
+<div class="container_login__form container_login--signin">
+
+
+<form class="signup form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<div ><img class="login_img" src="{% static 'images/Kakao.png'%}"></div>
+<div ><img class="login_img" src="{% static 'images/Naver.png'%}"></div>
+<div ><img class="login_img" src="{% static 'images/Google.png'%}"></div>
+
+
+</form>
+
+</div>
+
+<div class="container_login__form container_login--signup">
+
+ <form class="login formsignup form" method="POST" action="{% url 'account_signup' %}" id="form2">
+  <p class="loing_p">이미계정이 있으신가요?  <span class="login_span"><a href="{{ login_url }}" >바로 로그인하세요.</a></span></p>
+     {% csrf_token %}
+  {% include 'form_errors.html' %}
+  {{form.username|add_class:"input"|attr:"placeholder:아이디"}}
+  {{form.email|add_class:"input"|attr:"placeholder:이메일"}}
+  {{form.password1|add_class:"input"|attr:"placeholder:패스워드"}}
+  {{form.password2|add_class:"input"|attr:"placeholder:패스워드 확인"}}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+   <button type="submit" class="btn_log">{% trans "Sign Up" %} &raquo;</button>
+  </form>
+</div>
+ <!-- Overlay -->
+  <div class="container_login__overlay">
+    <div class="overlay">
+      <div class="overlay__panel overlay--left">
+        <button class="btn_log" id="signIn">간편 가입</button>
+      </div>
+      <div class="overlay__panel overlay--right">
+        <button class="btn_log" id="signUp">회원 가입</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</section>
+{% endblock %}

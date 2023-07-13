@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+<section id="wrap">
+<div >
+  <div >
+    <div>
+      주문
+    </div>
+    <ul>
+      {% for cart_item in cart %}
+        <li class="list-group-item">
+          수량: {{cart_item.quantity}} 제품명: {{cart_item.item_title}}
+          <span>{{cart_item.total_price|intcomma}}</span>
+        </li>
+      {% endfor %}
+      {% if cart.coupon %}
+        <li class="list-group-item">
+              "{{cart.coupon.code}}" ({{cart.coupon.discount|intcomma}}원 off)
+
+          <span>- ${{ cart.get_discount_total|intcomma }}</span>
+        </li>
+      {% endif %}
+    </ul>
+
+      <div>Total : {{ cart.get_total_price|intcomma }}</div>
+
+      <!-- form-->
+      <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="hidden" name="pre_order_id" value="0">
+        <input type="hidden" name="discount" value="{{ cart.get_total_price|intcomma}}">
+        <input type="submit" name="btn btn-primary float-right" value="주문확인">
+      </form>
+  </div>
+</div>
+
+   {% include 'footer.html' %}
+  </section>
+{% endblock %}

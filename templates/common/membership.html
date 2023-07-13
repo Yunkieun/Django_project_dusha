@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="wrap">
+    <div class="membership">
+<img  src="{% static '/images/membership.jpg' %}">
+        <div class="button_container">
+        <a href="{% url 'account_signup' %}" class="link">
+            <button class="btn_two"><span class="description">회원가입 하고 해택받으세요!</span></button></a>
+        </div>
+     </div>
+    {% include 'footer.html' %}
+      </section>
+{% endblock %}
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DUSHA</title>
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="{% static 'css/styleY.css' %}">
+  <link rel="stylesheet" href="{% static 'css/service.css' %}">
+</head>
+
+
+<body>
+
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+<section id="wrap">
+  <article class="hd">
+
+    <div>
+      <div>
+        <h2>고객센터</h2>
+        <p>무엇을 도와드릴까요</p>
+      </div>
+    </div>
+
+    <div>
+      <h3><img
+          src="data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 0c6.075 0 11 4.925 11 11s-4.925 11-11 11S0 17.075 0 11 4.925 0 11 0zm.002 14.13c-.318 0-.59.114-.813.342a1.156 1.156 0 0 0-.335.841c0 .333.112.614.335.843.224.23.495.344.813.344.318 0 .588-.115.81-.344.223-.23.334-.51.334-.843 0-.333-.111-.613-.334-.841a1.09 1.09 0 0 0-.81-.342zm1.053-8.63H9.949l.168 7.243h1.77l.168-7.243z' fill='%2350585F' fill-rule='evenodd'/%3E%3C/svg%3E%0A"
+          alt="">
+        택배사 파업 관련 공지사항</h3>
+
+      <p>택배사 파업 관련 문의량 증가로, 고객님 문의에 대한 답변이 지연되고 있습니다. <br>
+        순차적으로 답변 드리겠으며 최대한 빠르게 답변 드릴 수 있도록 최선의 노력을 다하겠습니다.</p>
+      <p>귀중한 시간을 내셔서 올리브영 온라인몰을 방문해주신 소중한 고객님께 <br>
+        이용에 불편을 드려 진심으로 죄송합니다. 감사합니다.</p>
+    </div>
+  </article>
+
+
+  <article class="qna">
+
+    <div>
+      <ul>
+        <li><a href="#">faq</a></li>
+        <li><a href="#">1:1문의</a></li>
+        <li><a href="#">공지사항</a></li>
+      </ul>
+    </div>
+
+    <table>
+      <colgroup>
+        <col style="width:25%">
+        <col style="width:75%">
+      </colgroup>
+      <tbody>
+        <tr>
+          <th>
+            <label>문의유형</label>
+          </th>
+
+          <td>
+            <select>
+              <option value="selected">선택해주세요</option>
+              <option value="1">온라인몰</option>
+              <option value="2">오늘드림</option>
+              <option value="3">매장</option>
+            </select>
+
+            <select disabled="disabled">
+              <option value="selected">선택해주세요</option>
+              <option value="1">온라인몰</option>
+              <option value="2">오늘드림</option>
+              <option value="3">매장</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <th>내용</th>
+          <td>
+            <textarea id="InputTextarea" name="inqCont" cols="5" rows="1" placeholder="문의내용을 입력해주세요.(2000자 이내)" style="width:98%;height:280px;"></textarea>
+          </td>
+          <td>
+            <div>
+              <label><button>첨부파일</button></label>
+              <p>5MB 이하의 이미지 파일 (JPG, PNG, GIF) 1개를 첨부하실 수 있습니다.</p>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <th>답변등록알림(선택)</th>
+          <td>
+            <ul>
+              <li><input type="checkbox" name="sms" value="y">
+                <label>sms</label>
+                <select>
+                  <option>010</option>
+                  <option>02</option>
+                  <option>031</option>
+                  <option>0502</option>
+                </select><span>-</span>
+                <input type="tel"><span>-</span><input type="tel">
+              </li>
+              <li><input type="checkbox"><label>E-mail</label> <input type="email"><span>@</span><input type="email"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      <button>등록</button>
+      <button>취소</button>
+    </div>
+  </article>
+{% include 'footer.html' %}
+</section>
+
+</body>
+
+
+</html>

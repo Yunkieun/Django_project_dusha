@@ -1,0 +1,30 @@
+{% load humanize %}
+{% load static %}
+{% block content %}
+<section>
+<div>
+<div>
+    {% for item in best_list %}
+    <div>
+      <!-- 배스트 상품 이미지 -->
+
+      <div>
+        <!-- 상품명-->
+        <div>{{item.item_title}}</div>
+          <div >
+        <a href="#">
+          <img src="{{item.item_image.url}}" alt="상품이미지" width="300px" >
+        </a>
+      </div>
+        <!-- 상품상세 내용 -->
+        <div>{{item.content}}</div>
+        <!-- 가격 -->
+        <div>{{item.item_price|intcomma}}원</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+    {% include 'footer.html' %}
+</section>
+{% endblock %}

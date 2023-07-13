@@ -1,0 +1,286 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0px solid silver;
+}
+
+img {
+  width: 100px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1rem;
+
+  letter-spacing: 0.1px;
+}
+
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+}
+
+h4, h5 {
+  font-family: 'Playfair Display', serif;
+}
+
+h4 {
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+}
+
+h5 {
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+}
+
+a:link {
+
+  text-decoration: none;
+}
+
+a:visited {
+
+}
+
+a:hover {
+
+}
+
+a:active {
+
+}
+
+button {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  border: 1px solid #ccc;
+  background: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.hd> :first-child {
+  width: 100%;
+  height: 100px;
+  background: url('https://www.oliveyoung.co.kr/pc-static-root/image/top/bg_customer_top.png') no-repeat;
+  background-position: center center;
+}
+
+.hd> :first-child div {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.hd> :last-child {
+  width: 90%;
+  height: 253px;
+  margin: 5.5rem auto 0 auto;
+  text-align: center;
+}
+
+.hd> :last-child h3 {
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+}
+
+.hd> :last-child h3 img {
+  width: 22px;
+  height: 22px;
+  padding-top: 3px;
+}
+
+.hd :last-child p {
+  margin: 1rem;
+  line-height: 1.5;
+}
+
+.qna {
+  width: 90%;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+.qna> :nth-child(1), .qna> :nth-child(2) {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.qna :nth-child(1) ul {
+  list-style: none;
+  display: flex;
+  text-align: center;
+  padding: 15px;
+  border-bottom: 2px solid black;
+}
+
+.qna :nth-child(1) ul li {
+  width: 321px;
+  height: 50px;
+  background: #eee;
+}
+
+.qna :nth-child(1) ul li a {
+  line-height: 3.5;
+}
+
+.qna :nth-child(1) ul :nth-child(2) {
+  background: #444;
+}
+
+.qna :nth-child(1) ul :nth-child(2) a {
+  color: white;
+}
+
+.qna> :nth-child(2)> :nth-child(1) {
+  height: 60px;
+  padding: 10px 0;
+}
+
+.qna> :nth-child(2) th {
+  width: 60;
+  color: black;
+  text-align: left;
+  padding-right: 5px;
+}
+
+.qna> :nth-child(2) td select {
+  width: 220px;
+  height: 38px;
+  border-radius: 3px;
+  border: 1px solid #eee;
+  margin-top: 20px;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(2)>td {
+  display: flex;
+  flex-direction: column;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(2) td textarea {
+  margin-top: 1rem;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(2) :nth-child(3) div {
+  margin: 10px 0 2rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(2) :nth-child(3) div label button {
+  width: 85px;
+  height: 38px;
+  padding: 0;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(2) :nth-child(3) p {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) td {
+  height: 100px;
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) ul {
+  list-style: none;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) ul li {
+  margin: 10px 0;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) ul li label {
+  margin: 5px;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) ul li select {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) ul li span {
+  margin: 8px;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) ul li :nth-child(5), .qna> :nth-child(2)> :last-child> :nth-child(3) ul li :nth-child(7) {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.qna> :nth-child(2)> :last-child> :nth-child(3) ul :last-child :nth-child(3), .qna> :nth-child(2)> :last-child> :nth-child(3) ul :last-child :nth-child(5) {
+  width: 120px;
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.qna> :nth-child(3) {
+  text-align: center;
+}
+
+.qna> :nth-child(3) button {
+  width: 150px;
+  height: 50px;
+  margin: 20px 10px;
+  font-size: 1rem;
+}
+
+.qna> :nth-child(3) :first-child {
+  background: #9bce26;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.qna> :nth-child(3) :last-child {
+  background: #888;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}

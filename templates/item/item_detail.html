@@ -1,0 +1,92 @@
+{% extends 'base.html' %}{% load humanize %}
+{% load static %}
+{% block content %}
+<section id="wrap">
+
+    <!-- 썸네일 + 주문창 -->
+    <div class="top-info">
+        <!-- 제품 이미지 -->
+        <div class="thumb-img shine">
+            <a href="">
+                <figure class="fiimg"><img src="{{item.item_image.url}}" alt="썸네일 이미지"/>
+                </figure>
+            </a>
+        </div>
+        <!-- 주문창 -->
+        <div id="item_i">
+            <div class="item_info1">
+                <h2>{{ item.item_title }}</h2>
+                <colgroup>
+                    <col style="width:500px;">
+                    <col>
+                </colgroup>
+                <table class="item_detail_table">
+                    <tbody>
+                    <tr>
+                        <th class="th_abc">제품 정보</th>
+                        <td class="abc">{{ item.content }}</td>
+                    </tr>
+                    <tr>
+                        <th class="th_abc">제품 가격</th>
+                        <td class="price abc"><b>{{ item.item_price|intcomma }}원</b></td>
+                    </tr>
+                    <br>
+                    <tr>
+                        <th class="th_abc">배송비</th>
+                        <td class="abc">2,500원(97,000원 이상 구매시 무료)</td>
+                    </tr>
+                    <tr>
+                        <th class="th_abc">출고예정일</th>
+                        <td class="abc">2시 이전 당일출고(주말, 공휴일 제외)</td>
+                    </tr>
+                    <tr>
+                        <th class="th_abc">배송방법</th>
+                        <td class="abc"> 두샤(dusha) / 본사 검수 및 직배송 / CJ대한통운</td>
+                    </tr>
+                    <tr>
+                        <th class="th_abc">결제 가격</th>
+                        <td class="abc"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <form action="{% url 'cart:add_cart' item.id %}" method="post">
+                    {{ add_to_cart }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn_one1 custom-btn">장바구니</button>
+
+                </form>
+                <div class="keep-shopping">
+                    <a href="{% url 'item:item_list' %}">
+                        <button type="submit" class="btn_one1 custom-btn">계속 쇼핑하기
+
+                    </button></a></div>
+            </div>
+
+        </div>
+
+
+        <!-- 상세 이미지 -->
+        <div class="middle-info">
+            <hr>
+            <p>< 제품 상세정보 ></p>
+
+            <a href="">
+                <img class="item_conentimg" src="{{ item.item_content.url}}" alt="이미지 상세 보기"/>
+            </a>
+        </div>
+    </div>
+    <!-- 버튼 -->
+
+
+
+
+    {% include 'footer.html' %}
+</section>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if not user_passes_test %}
+    <script>
+        alert("관리자만 접근할 수 있습니다.");
+         </script>
+{% endif %}
+
+<section id="wrap">
+    <section id="detail">
+
+        <h2 class="border-bottom py-2">{{ notice.subject }}</h2>
+        <div class="card my-3">
+            <div class="card-body">
+                <!-- 줄바꿈 style="white-space: pre-line"-->
+                <div class="card-text" style="white-space: pre-line">
+                    {{ notice.content }}  <!-- 질문 내용 -->
+                    {{ notice.file }}  <!-- 질문 내용 -->
+                    <img src=" {{ notice.photo }}">  <!-- 질문 내용 -->
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="badge bg-info text-start">
+                        <div class="mb-2">{{ notice.author }}</div>
+                        <div>{{ notice.create_date }}</div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+            </div>
+        </div>
+
+
+
+    </section>
+    {% include 'footer.html' %}
+</section>
+
+
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+    $(document).ready(function(){
+        $('.delete').click(function(){  // 삭제 버튼을 클릭하면
+            if(confirm('정말 삭제하시겠습니까?')){
+                location.href=$(this).data('uri');  // 현재 대상 객체의 주소를 이동
+            }
+        });
+    });
+</script>
+{% endblock %}

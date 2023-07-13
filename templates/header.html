@@ -1,0 +1,30 @@
+{% load static %}
+<header>
+    <div class="header_wrap">
+
+        <div class="header_index">
+            <div class="logo">
+                <a href="/">
+                    <img src="/static/images/logo.png">
+                </a>
+            </div>
+            <div class="gnb">
+                <ul class="nav_intro">
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                    <li><a href="{% url 'common:detail' user.id %}">회원정보</a></li>
+                    <li><a href="{% url 'cart:detail'%}">CART</a></li>
+                    {%else%}
+                    <li><a href="{% url 'account_login' %}">LOGIN</a></li>
+                    <li><a href="{% url 'cart:detail'%}">CART</a></li>
+                    <li><a href="{% url 'account_signup' %}">SIGNUP</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+</header>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="wrap">
+<div class="container my-3">
+    <section id="question_form">
+        <h4 class="border-bottom pb-2">질문 등록</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            <!--{{ form.as_p }}--> <!-- input, textarea 태그 포함 -->
+            <!-- 유효성 검사 - 오류 처리 시작 -->
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                {% for field in form %}   <!-- 폼을 필드를 순회하면서  -->
+                    {% if field.errors %} <!-- 필드에 오류가 있으면 -->
+                        {{ field.label }}
+                        {{ field.errors }}  <!-- 에러 출력 -->
+                    {% endif %}
+                {% endfor %}
+                </div>
+            {% endif %}
+            <!-- 오류 처리 끝-->
+            <div class="form-group">
+                <label for="subject">제목</label>
+                <input type="text" id="subject" name="subject" class="form-control"
+                       value="{{ form.subject.value|default_if_none:'' }}">
+            </div>
+            <div class="form-group">
+                <label for="content">내용</label>
+                <textarea id="content" name="content" rows="10"
+                          class="form-control mb-3">{{ form.content.value|default_if_none:'' }}</textarea>
+            </div>
+             <div class="form-group">
+                <label for="file">파일</label>
+                <input id="file" type="file">{{ form.content.value|default_if_none:'' }}</input>
+            </div>
+             <div class="form-group">
+                <label for="photo">사진</label>
+                <input id="photo" type="file">{{ form.content.value|default_if_none:'' }}</input>
+            </div>
+            <button type="submit" class="custom-btn btn_one1">등록</button>
+        </form>
+    </section>
+</div>
+    {% include 'footer.html' %}
+</section>
+{% endblock %}

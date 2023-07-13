@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}{% load humanize %}
+{% block content %}
+{% block scripts%}
+<script>
+ {% if messages %}
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    {% endif %}
+
+</script>
+{%endblock%}
+<p id="intro_text" class="flashing">DUSHA even makes your soul smell good.</p>
+  <video src="{% static '/video/bg.mp4' %}" autoplay muted loop></video>
+
+<section id="container" >
+<section id="wrap" >
+ </section>
+    <section id="c">
+        <ul class="amount">
+            <li>
+                <div>
+                    <div class="contents1">SPECIAL GIFT EVENT</div>
+                    <div class="result">딥디크 브랜드 파우치 증정</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <div class="contents1">커스텀 선물 포장 패키지</div>
+                    <div class="result">직접고르는 선물포장 서비스</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <div class="contents1">New Brand Free Gift Event</div>
+                    <div class="result">바디워시 샘플 3종 증정</div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <div class="contents1">감도를 채워줄 나만의 향수</div>
+                    <div class="result">1:1 맞춤 추천</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section id="d">
+        <div class="main_text0">
+            <h1>DUSHA</h1>
+            <div class="contents1">향을 찾아드리고 전달 드리는 모든 과정 속에서<br>
+                ‘제품 구매’ 그 이상의 경험을 느끼실 수 있도록,
+                퍼퓸그라피가 고객님만을 위한 향수 전문가가 되어드리겠습니다.
+            </div>
+
+            <ul class="icons">
+                <li>
+                    <div class="icon_img">
+                        <img src="static/images/social-care.png">
+                    </div>
+                    <div class="contents1_bold"><100% 직수입, 본사 검수></div>
+                    <div class="contents2">
+                        국가 기관에 정식으로 등록된 향수 전문 셀렉트샵으로,
+                        오직 정품만 취급하고 정식품질관리를 통해
+                        엄격한 품질관리를 유지하고 있습니다
+                    </div>
+                    <div class="ex1">
+                        <img src="static/images/01.png">
+                    </div>
+                    <!--                <div class="more">
+                                        MORE
+                                    </div>-->
+                </li>
+
+                <li>
+                    <div class="icon_img">
+                        <img src="static/images/like.png">
+                    </div>
+                    <div class="contents1_bold">
+                        <p>
+                            향기에 깊이를 더해주는 시향 컨텐츠
+                        </p>
+                    </div>
+                    <div class="contents2">
+                        향수 맞춤 추천, 시각적 이미지 등 향기에 대한 더욱 섬세하고 전문적인 인사이트까지
+                        제공하며 향기에 깊이를 더해드릴 수 있도록 도움을 드리고 있습니다.
+                    </div>
+                    <div class="ex2">
+                        <img src="static/images/02.png">
+                    </div>
+                    <!--                <div class="more">
+                                        MORE
+                                    </div>-->
+                </li>
+
+                <li>
+                    <div class="icon_img">
+                        <img src="static/images/truck.png">
+                    </div>
+                    <div class="contents1_bold">
+                        꼼꼼하고 안전한 포장, 당일 발송
+                    </div>
+                    <div class="contents2">
+                        두샤에서만 제공하는 커스텀 선물 포장으로 고객님드르이 소중한 마음까지 전달될 수 있도록 노력하고 있습니다.
+                        또한, 14시 이전 주문 건은 모두 당일 출고해드리고 있습니다.
+                    </div>
+                    <div class="ex3">
+                        <img src="static/images/03.png">
+                    </div>
+                    <!--                <div class="more">
+                                        MORE
+                                    </div>-->
+                </li>
+            </ul>
+        </div>
+    </section>
+
+<section id="g">
+    <section id="best_item2">
+        <div class="bi_title">
+            <h3 id="bi_text1">BEST & HOT</h3>
+            <h2 id="bi_text">가장 주목받는 베스트 향수</h2>
+        </div>
+        <!-- 1 -->
+        <section id="bi_detail">
+            <div class="slider">
+             {% for item in best_list %}
+            <div class="bs1">
+                 <div class="item-title">{{item.item_title}}</div>
+                <div class="shine">
+                <a href="{% url 'item:item_detail' item.id %}" > <figure><img src="{{item.item_image.url}}" alt="베스트 상품" width="300" height="300"></figure></a>
+                 </div>
+                    <div class="item-subtitle color-8D">{{item.content}}</div>
+                <div>{{item.item_price|intcomma}}원</div>
+            </div>
+                    {% endfor %}
+            </div>
+
+        </section>
+ </section>
+
+    <section id="4">
+        <div class="main_text1">
+            <h1>OUR SERVICE</h1>
+            <div class="contents1">
+                온라인 샵에서 제공하는 제품들을 백화점과는 달리<br>
+                매우 자유로운 분위기 속에서 마음껏 시향하실 수 있는
+                오프라인 스토어를 운영 중이며, <br>
+                직원들의 전문적인 취향 맞춤 추천서비스를<br>
+                받아 보실 수 있는 공간입니다.
+            </div>
+            <div class="service">
+                <div class="S_photo">
+                    <img src="static/images/04.png">
+                </div>
+                <div class="contents2">
+                    <h2>OUR VISION</h2>
+                    고객님들의 목소리를 귀담아 들으며
+                    ‘제품 구매’ 그 이상의 경험을 제공해드리기 위해 끊임없이 고민하고 있습니다.<br>
+                    고객님들이 원하시는 향기를 마음껏 즐기실 수 있게, 더 나아가 향기에 깊이를 더할 수 있도록<br>
+                    퍼퓸그라피가 고객님들에게 다가가겠습니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="main_text2">
+            <ul>
+                <li>
+                    <div><h1>DUSHA</h1></div>
+                    <div>DUSHA even makes your soul smell good.</div>
+                    <div class="more2">더 알아보기</div>
+                </li>
+                <li></li>
+            </ul>
+        </div>
+
+
+    </section>
+
+    <section id="5"></section>
+    </section>
+{% include 'footer.html' %}
+
+</section>
+<!--<div class="top"><a>NEW프래그런스 시트러스 컬렉션</a></div>&ndash;&gt;-->
+
+
+<!-- intro end -->
+
+<!-- amount end -->
+
+
+{% endblock %}
+
+{% include 'footer.html' %}

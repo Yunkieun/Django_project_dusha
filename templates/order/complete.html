@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+<section id="wrap">
+
+  <div class="complete-box">
+    <div class="speech-bubble">
+      <h2 class="big-title">{{order.realname}}님 주문해 주셔서 감사합니다.</h2>
+      <br>
+      <h3>
+        아래 주소로 배송이 시작됩니다.
+      </h3>
+      <h4 class="address">{{order.address}}</h4>
+     </div>
+    <br>
+    <div class="speech-bubble">
+    <h2><a href="/member/order" class="btn-rectangle">주문내역/배송현황</a></h2>
+    <div class="order-info-box">
+      <ul class="order-info-wrapper">
+       {% for cart_item in cart %}
+        <li>
+          <span class="list-title">주문상품</span>
+          <span>{{ cart_item.item.name }}</span>
+        </li>
+        <li>
+          <span class="list-title">가격</span>
+          <span class="color-orange">{{  cart_item.item_price|intcomma }}원 {{ cart_item.quantity }}개</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if order.coupon %}
+  <p>적용된 쿠폰: {{ order.coupon.code }} (할인 금액: {{ order.discount|intcomma }}원)</p>
+    {% endif %}
+      {{ get_total_product }}{{ get_total_price }}
+      {% for order_item in order.cart_items.all %}
+    상품명: {{ order_item.item.name }}
+    가격: {{ order_item.price }}
+    수량: {{ order_item.quantity }}
+{% endfor %}
+
+
+
+
+
+
+
+    </div>
+  </div>
+     </div>
+  {% include 'footer.html' %}
+</section>
+<div class="position"></div>
+
+{%endblock%}

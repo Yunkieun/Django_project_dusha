@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+
+{% block content %}
+
+<section id="wrap">
+    <div id="user-detail-wrap">
+        <div class="user-info-grade">
+            <!-- 회원 정보 -->
+            <div class="speech-bubble">
+                <h2><b>회원 정보</b></h2>
+                <table class="user-info-table">
+                    <col style="width:200px;">
+                    <col style="width:200px;">
+                    <col style="width:200px;">
+                    <thead>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    </thead>
+                    <tbody>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    </tbody>
+                </table>
+
+            </div>
+            <br><br>
+            <div class="speech-bubble">
+                <!-- 회원 등급 & 구매금액 -->
+
+                <h2><b>회원 등급</b></h2>
+                <table class="user-grade-table">
+                    <col style="width:200px;">
+                    <col style="width:200px;">
+                    <col style="width:200px;">
+                    <thead>
+                    <th>회원 등급</th>
+                    <th>구매 금액</th>
+                    <th>보유 쿠폰</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <!-- 회원 등급 -->
+                        <td>{{ user.member.user_grade }}</td>
+                        <!-- 구매 금액 -->
+                        <td>{{total|intcomma}}원</td>
+                        <!-- 보유 쿠폰 -->
+                        <td>{{ user.member.coupon }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br><br>
+            <div class="speech-bubble">
+                <table class="user-grade-table">
+                    <col style="width:200px;">
+                    <col style="width:200px;">
+                    <col style="width:200px;">
+                    <thead>
+                    <th>쿠폰 내용</th>
+                    <th>사용 기한</th>
+                    <th>발급일</th>
+                    <th>할인액</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <!-- 회원 등급 -->
+                        <td> {{user.member.coupon.coupon_name}}</td>
+                        <!-- 구매 금액 -->
+                        <td>{{user.member.coupon.use_to|date:"Y년 m월 d일"}}</td>
+                        <!-- 보유 쿠폰 -->
+                        <td>{{user.member.coupon.use_from|date:"Y년 m월 d일"}}</td>
+                        <td>{{user.member.coupon.discount}}</td>
+                    </tr>
+                    </tbody>
+
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="cart">
+
+        <!-- 장바구니 -->
+        <div class="user-cart">
+            <!-- 장바구니 링크 연결 -->
+            <!-- 장바구니에 상품이 없으면 -->
+            {% if not cart %}
+
+            <div class="user-cart-off">
+
+                <h2>장바구니</h2>
+                <table class="user-cart-off-table">
+                    <thead>
+                    <td>장바구니에 담긴 상품이 없습니다.</td>
+                    </thead>
+                </table>
+                <a href="/item">계속 쇼핑하기</a>
+            </div>
+            {% else %}
+            <!-- 장바구니에 상품이 있으면 -->
+
+
+            {% for it in cart %}
+            <div class="user-cart-on">
+                <table>
+                    <!-- 상품 이미지 -->
+                    <thead>
+                    <tr>
+                        <th>제품이미지</th>
+                        <th>제품명</th>
+                        <th>제품금액</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>
+                            <a href="{{ item.get_absolute_url }}">
+                                <img src="{{item.item_image.url }}" alt="상품이미지"/>
+                            </a>
+                        </th>
+                        <!-- 장바구니 상품 제목 -->
+                        <th>
+                            {{ it.item_title }}
+                        </th>
+                        <!-- 장바구니 상품 금액 -->
+                        <th>
+                            {{ cart.get_total_price|intcomma }}원
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <a href="/cart">장바구니 전체보기></a>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    {% include 'footer.html' %}
+</section>
+{% endblock %}

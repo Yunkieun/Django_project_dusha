@@ -1,0 +1,18 @@
+<!--유효성 검사 - 오류 처리 시작-->
+{% if form.errors %}
+    <!-- 필드 오류 -->
+    {% for field in form %}
+        {% for error in field.errors %}
+          <div class="alert alert-danger" style="color: red; font-size: 0.6em;">
+            <strong>{{ field.label }}</strong>
+            {{ error }}
+          </div>
+        {% endfor %}
+    {% endfor %}
+    <!-- 넌 필드 오류 -->
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger" style="color: red;">
+            <strong>{{ error }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}

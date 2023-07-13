@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<section id="wrap">
+<div class="cart-form">
+  <h3>장바구니</h3>
+  <table class="cart-wrap table_one">
+    <col style="width:200px;">
+    <col style="width:400px;">
+    <col style="width:150px;">
+    <col style="width:200px;">
+    <col style="width:100px;">
+    <col style="width:200px;">
+    <thead  class="thead_one">
+      <tr class="tr_one">
+        <th class="th_one">제품이미지</th>
+        <th class="th_one">제품명</th>
+        <th class="th_one">제품수량</th>
+        <th class="th_one">제품삭제</th>
+        <th class="th_one">제품단가</th>
+        <th class="th_one">총금액</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for it in cart %}
+        {% with item=it.item %}
+        <tr class="tr_one">
+          <!-- 제품 이미지 -->
+          <td class="cart-img">
+            <a href="{{ item.get_absolute_url }}">
+              <img src="{{item.item_image.url }}" class="img-thumbnail">
+            </a>
+          </td >
+          <!-- 제품명 -->
+          <td>
+            <a href="{{ item.item_detail.url }}">{{ item.item_title }}</a>
+          </td>
+          <!-- 제품 수량-->
+          <td>
+            <form class="" action="{% url 'cart:add_cart' item.id %}" method="post">
+              {% csrf_token %}
+              {{ it.quantity_form.quantity }}
+              {{ it.quantity_form.is_update }}
+             <button class="btn_one1 custom-btn" type="submit" >Update</button>
+
+            </form>
+          <!-- 제품 삭제 -->
+          </td>
+          <td><a href="{% url 'cart:remove_cart' item.id %}">
+            <button class="btn_one1 custom-btn" >Remove</button></a></td>
+          <!-- 제품 단가-->
+          <td class="num">{{ it.item_price|intcomma }}원</td>
+          <!-- 토탈 금액 -->
+          <td class=""><b>{{it.total_price|intcomma}}</b>원</td>
+        </tr>
+        {% endwith %}
+      {% endfor %}
+
+      {% if cart.coupon %}
+        <tr class="subtotal">
+          <td>Subtotal</td>
+          <td colspan="4"></td>
+          <td>{{ cart.get_product_total|intcomma }}원</td>
+        </tr>
+        <tr>
+          <td>"{{cart.coupon.code}}" 쿠폰 할인금액:{{ cart.coupon.discount|intcomma }}원<br></td>
+          <td colspan="4"></td>
+          <td>- {{ cart.get_discount_total|intcomma }}</td>
+        </tr>
+      {% endif %}
+      <tr>
+        <form action="{% url 'coupon:add' %}" method="post">
+            {{add_coupon}}
+            <td class="add2"><input type="submit" value="Add"></td>
+            {% csrf_token %}
+        </form>
+      </tr>
+      <!-- 총 금액 -->
+      <tr class="cart-total-price" style="height: 60px;">
+        <td>합계 금액</td>
+        <td colspan="4"></td>
+        <td class="num">총 <b>{{ cart.get_total_price|intcomma }}</b> 원</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+    <div class="cart-bottom">
+      <button type="button" class="cart-check">
+        <a href="{% url 'order:order_create'%}" class="btn btn-primary">주문하기</a>
+      </button>
+    </div>
+    <div class="keep-shopping">
+    <a href="{% url 'item:item_list' %}">계속 쇼핑하기</a>
+    </div>
+</div>
+  {% include 'footer.html' %}
+  </section>
+{% endblock %}

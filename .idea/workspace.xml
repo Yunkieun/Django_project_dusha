@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7c2cb19c-65db-4852-8c8f-9ab1052cfd88" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/DUSHAPROJECT.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/board/notice_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/board/notice_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/board/notice_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pyweb.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/board/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/board/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/board/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/board/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/board/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/styleY.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styleY.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/board/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/board/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/board/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/board/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/item/item_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/item/item_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2S2ViAb8ssk3yPBiRJJe4dg1qxa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;JJ&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/Documents/카카오톡 받은 파일/DUSHAPROJECT (2)/DUSHAPROJECT&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\카카오톡 받은 파일\DUSHAPROJECT (2)\DUSHAPROJECT\templates\board" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="7c2cb19c-65db-4852-8c8f-9ab1052cfd88" name="변경" comment="" />
+      <created>1688344788219</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1688344788219</updated>
+    </task>
+    <servers />
+  </component>
+</project>
